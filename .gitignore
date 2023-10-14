@@ -113,4 +113,4 @@ dmypy.json
 .pytype/
 cython_debug/
 
-*/secrets.*
+*/secret*.*
