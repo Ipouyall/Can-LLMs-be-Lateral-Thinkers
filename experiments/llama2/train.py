@@ -37,7 +37,7 @@ def parse_arguments():
     return args
 
 def create_dataset(dataset_address):
-    df = pd.read_csv("../SentencePuzzleKD/KD_train_gpt-4_revised.csv")
+    df = pd.read_csv(dataset_address)
     prompt = """ \
     Your task is to generate a descriptive explanation from a question to an answer option. \
     In the following, a question and an option as the answer to the question is provided. \
