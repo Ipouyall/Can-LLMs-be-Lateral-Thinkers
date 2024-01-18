@@ -13,6 +13,7 @@ from transformers import (
 from peft import LoraConfig, TaskType
 from trl import SFTTrainer
 import argparse
+import os
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Training Llama-2-7b on Brain Teaser Explain dataset")
@@ -37,7 +38,7 @@ def parse_arguments():
 
 def create_dataset(dataset_address):
     df = pd.read_csv("../SentencePuzzleKD/KD_train_gpt-4_revised.csv")
-    prompt_template = """ \
+    prompt = """ \
     Your task is to generate a descriptive explanation from a question to an answer option. \
     In the following, a question and an option as the answer to the question is provided. \
     The answer might be or not be a correct answer. \
@@ -45,7 +46,7 @@ def create_dataset(dataset_address):
     Question: "{question}"
     Answer Option: "{option}"
     """
-    prompt_template = prompt.replace("\n", " \n ")
+    prompt = prompt.replace("\n", " \n ")
     prompt = prompt.strip()
 
 
@@ -94,7 +95,7 @@ def train(args, dataset):
         task_type=TaskType.CAUSAL_LM,
     )
 
-    training_params = TrainingArguments(
+    training_args = TrainingArguments(
         output_dir=args.output_dir,
         num_train_epochs=args.num_train_epochs,
         per_device_train_batch_size=args.per_device_train_batch_size,
@@ -104,8 +105,8 @@ def train(args, dataset):
         logging_steps=args.logging_steps,
         learning_rate=args.learning_rate,
         weight_decay=args.weight_decay,
-        fp16=arg.fp16,
-        bf16=arg.bf16,
+        fp16=args.fp16,
+        bf16=args.bf16,
         max_grad_norm=0.3,
         max_steps=-1,
         warmup_ratio=args.warmup_ratio,
@@ -121,12 +122,18 @@ def train(args, dataset):
         dataset_text_field="text",
         max_seq_length=None,
         tokenizer=tokenizer,
-        args=training_params,
+        args=training_args,
         packing=False,
     )
 
-    trainer.train(resume_from_checkpoint=True)
-    trainer.save_model("./brain_teaser_explain_llama2_checkpoints/checkpoint-final/")
+    resume_from_checkpoint = any(
+        os.path.isdir(os.path.join(training_args.output_dir, folder))
+        and folder.startswith("checkpoint-") and folder[11:].isdigit()
+        for folder in os.listdir(training_args.output_dir)
+    )
+
+    trainer.train(resume_from_checkpoint=resume_from_checkpoint)
+    trainer.save_model(os.path.join(args.output_dir, "checkpoint-final"))
 
 
 if __name__ == "__main__":

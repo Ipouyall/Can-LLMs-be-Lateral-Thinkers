@@ -4,8 +4,6 @@ python3 train.py \
     --learning_rate 2e-4 \
     --weight_decay 0.001 \
     --warmup_ratio 0.03 \
-    --fp16 \
-    --bf16 \
     --num_train_epochs 3 \
     --per_device_train_batch_size 2 \
     --gradient_accumulation_steps 1 \
