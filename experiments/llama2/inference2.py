@@ -55,7 +55,7 @@ Your final task is choosing the best option that is related to the riddle. \
 For the first three options, you are given a context that explains a path between the question and the answer. \
 Although these contexts may try to say their option is true, you should compare all the options based on the question \
 and options' context to choose the one that has the most logical answer. If none of them seem logical, 
-choose the fourth option: "None of the above options." \ 
+choose the fourth option: "None of the above options." \
 Now, consider the riddle below and the context provided for you, and tell me which option is \
 the best answer to the riddle due to the context. \
 In your response mention the correct option's number ('option 1', 'option 2', 'option 3', 'option 4'). \
