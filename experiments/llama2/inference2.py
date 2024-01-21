@@ -62,19 +62,18 @@ In your response mention the correct option's number ('option 1', 'option 2', 'o
 There is no need for any long explanation.
 
 
-Riddle: ```
-{question}
-```
+Riddle: "{question}"
+
 Options:
-Option 1: ```{option 1}```
-Option 2: ```{option 2}```
-Option 3: ```{option 3}```
-Option 4: ```None of the above options.```
+Option 1: "{option 1}"
+Option 2: "{option 2}"
+Option 3: "{option 3}"
+Option 4: "None of the above options."
 
 Contexts:
-[context about option 1]: ```{context 1}```
-[context about option 2]: ```{context 2}```
-[context about option 3]: ```{context 3}```
+Context about option 1: "{context 1}"
+Context about option 2: "{context 2}"
+Context about option 3: "{context 3}"
 """
 
     template = template.replace("\n", " \n ")
