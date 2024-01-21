@@ -30,7 +30,7 @@ def parse_arguments():
     parser.add_argument("--per_device_train_batch_size", type=int, default=2, help="Batch size per GPU/CPU")
     parser.add_argument("--gradient_accumulation_steps", type=int, default=1, help="Number of steps to accumulate gradients")
     parser.add_argument("--save_total_limit", type=int, default=None, help="Total number of checkpoints to save (None for unlimited)")
-    parser.add_argument("--dataset_address", type=str, default="../SentencePuzzleKD/KD_train_gpt-4_revised.csv", help="Path to the dataset CSV file")
+    parser.add_argument("--dataset_address", type=str, default="./KD_train_gpt-4_revised.csv", help="Path to the dataset CSV file")
     parser.add_argument("--lr_scheduler_type", type=str, default="cosine", help="Learning rate scheduler type")
 
     args = parser.parse_args()
