@@ -39,12 +39,12 @@ def parse_arguments():
 def create_dataset(dataset_address):
     df = pd.read_csv(dataset_address)
     prompt = """ \
-    Your task is to generate a descriptive explanation from a question to an answer option. \
-    In the following, a question and an option as the answer to the question is provided. \
-    The answer might be or not be a correct answer. \
-    Write a descriptive explanation in at most one paragraph and 200 words to show that path from question to the answer.
-    Question: "{question}"
-    Answer Option: "{option}"
+Your task is to generate a descriptive explanation from a question to an answer option. \
+In the following, a question and an option as the answer to the question is provided. \
+The answer might be or not be a correct answer. \
+Write a descriptive explanation in at most one paragraph and 200 words to show that path from question to the answer.
+Question: "{question}"
+Answer Option: "{option}"
     """
     prompt = prompt.replace("\n", " \n ")
     prompt = prompt.strip()
@@ -78,7 +78,7 @@ def train(args, dataset):
     model = AutoModelForCausalLM.from_pretrained(
         base_model,
         quantization_config=quant_config,
-        device_map={"": 0}
+        device_map="auto",
     )
     model.config.use_cache = False
     model.config.pretraining_tp = 1

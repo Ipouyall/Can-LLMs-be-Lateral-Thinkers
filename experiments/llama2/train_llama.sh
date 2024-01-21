@@ -9,5 +9,5 @@ python3 train.py \
     --gradient_accumulation_steps 1 \
     --save_total_limit 5 \
     --lr_scheduler_type "cosine" \
-    --dataset_address "../SentencePuzzleKD/KD_train_gpt-4_revised.csv" \
+    --dataset_address "./KD_train_gpt-4_revised.csv" \
     --output_dir "./brain_teaser_explain_llama2_checkpoints"
