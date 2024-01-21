@@ -50,13 +50,16 @@ def get_inference(args):
 
     template = """ \
 You are given a riddle and four options to choose the answer amongst them. \
-I would provide you a context about each option and how they are related to the riddle. \
-Then, you should choose the best option that is related to the riddle. \
-Now, consider the riddle below and the context provided for you and tell me which option is \
-the best answer to the riddle due to the context.
-Your response should contain only one line in the format below, in which, \
-you just mention the answer option:
-ANSWER: <answer option such as 'option 1', 'option 2', 'option 3', 'option 4'>
+The fourth option is "None of the above options". \
+Your final task is choosing the best option that is related to the riddle. \
+For the first three options, you are given a context that explains a path between the question and the answer. \
+Although these contexts may try to say their option is true, you should compare all the options based on the question \
+and options' context to choose the one that has the most logical answer. If none of them seem logical, 
+choose the fourth option: "None of the above options." \ 
+Now, consider the riddle below and the context provided for you, and tell me which option is \
+the best answer to the riddle due to the context. \
+In your response mention the correct option's number ('option 1', 'option 2', 'option 3', 'option 4'). \
+There is no need for any long explanation.
 
 
 Riddle: ```
