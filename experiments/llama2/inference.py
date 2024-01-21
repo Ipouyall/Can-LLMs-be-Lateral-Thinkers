@@ -60,11 +60,12 @@ Answer Option: "{option}"
 
     for index, row in tqdm(df.iterrows(), total=len(df)):
         for option_number in range(1, 4):
-            hypothesis = llm_chain.run({'question': row["question"], 'option': row[f"option_{option_number}"]})
+            option_key = f"option_{option_number}"
+            hypothesis = llm_chain.run({'question': row["question"], 'option': row[option_key]})
             output_data.append(
                 {
                     'question': row["question"],
-                    'option': row[f"option_{option_number}"],
+                    'option': row[option_key],
                     'hypothesis': hypothesis
                 }
             )
