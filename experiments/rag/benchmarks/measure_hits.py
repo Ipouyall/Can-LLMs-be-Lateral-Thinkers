@@ -23,7 +23,7 @@ def hit_ratio(df: pd.DataFrame):
 
 
 if __name__ == "__main__":
-    files = find_files(".", ".csv")
+    files = sorted(find_files(".", ".csv"))
     print(f"{'File':<32}| {'Hits':<6}| {'Hit Rate':<9}| Retrieved")
     for file in files:
         df = pd.read_csv(file)
