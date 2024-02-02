@@ -17,15 +17,15 @@ def hit_ratio(df: pd.DataFrame):
                 hits += 1
     hit_rate = 3 * len(df)
     hit_rate = hits / hit_rate
-    return hits, hit_rate
+    return hits, hit_rate, len(ret_cols)
 
 
 
 
 if __name__ == "__main__":
     files = find_files(".", ".csv")
-    print(f"{'File':<32}| {'Hits':<6}| {'Hit Rate'}")
+    print(f"{'File':<32}| {'Hits':<6}| {'Hit Rate':<9}| Retrieved")
     for file in files:
         df = pd.read_csv(file)
-        hits, hit_rate = hit_ratio(df)
-        print(f"{file[-30:]:<32}| {hits:<6}| {hit_rate:.3f}")
+        hits, hit_rate, retrieved = hit_ratio(df)
+        print(f"{file[-30:]:<32}| {hits:<6}| {round(hit_rate,3):<9}| {retrieved}")
