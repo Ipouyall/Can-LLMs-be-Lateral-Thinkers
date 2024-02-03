@@ -5,6 +5,7 @@ import glob
 def find_files(dir: str, ends_with: str):
     return glob.glob(f"{dir}/*{ends_with}", recursive=True)
 
+
 def hit_ratio(df: pd.DataFrame):
     variations = ["SR", "CR"]
     ret_cols = [col for col in df.columns if 'retrieve' in col]
@@ -18,8 +19,6 @@ def hit_ratio(df: pd.DataFrame):
     hit_rate = 3 * len(df)
     hit_rate = hits / hit_rate
     return hits, hit_rate, len(ret_cols)
-
-
 
 
 if __name__ == "__main__":
