@@ -93,9 +93,9 @@ so announce the option you think is the best one in the format: \
         result = llm_chain.run(data).strip()
         data["zephyr_raw"] = result
         pred_key, pred = extract_csqa_answer(result)
-        data["zephyr_pred"] = pred
-        data["answer"] = key
-        data["score"] = 1 if pred_key == key else 0
+        data["zephyr_pred"] = str(pred)
+        data["answer"] = str(key)
+        data["score"] = pred_key == key
         output_data.append(data)
         if pred_key == key:
             score += 1
@@ -164,20 +164,20 @@ so announce the option you think is the best one in the format: \
     output_data = []
     score = 0
 
-    for que, *options, key in tqdm(itr, total=150, desc="Inference (CoDAH)"):
+    for que, *options, key in tqdm(itr, total=150, desc="Inference (SWAG)"):
         data = {"question": que}
         for i, opt in enumerate(options, start=1):
             data[f"option_{i}"] = opt
         result = llm_chain.run(data).strip()
         data["zephyr_raw"] = result
         pred = extract_swag_answer(result)
-        data["zephyr"] = pred
-        data["answer"] = key
-        data["score"] = 1 if pred == key else 0
+        data["zephyr"] = str(pred)
+        data["answer"] = str(key)
+        data["score"] = pred == key
         output_data.append(data)
         if pred == key:
             score += 1
-            print(f"CoDAH Score: {round(score/1.5, 3)}%")
+            print(f"SWAG Score: {round(score/1.5, 3)}%")
     save_inference(output_data, "swag_inference.jsonl")
 
 
