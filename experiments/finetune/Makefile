@@ -25,6 +25,13 @@ infer2:
 	./inference2.sh
 	@echo "$(GREEN)[+]Running inference2 script...$(NC)"
 
-all: deps train infer infer2
+inferOther:
+	@echo "$(GREEN)[*]Running inferenceOther script...$(NC)"
+	@chmod +x ./inference_other.sh
+	./inference_other.sh
+	@echo "$(GREEN)[+]Running inferenceOther script...$(NC)"
+
+all: deps train infer infer2 inferOther
+	@echo "$(GREEN)[+]All done!$(NC)"
 
 .PHONY: all deps train infer infer2
