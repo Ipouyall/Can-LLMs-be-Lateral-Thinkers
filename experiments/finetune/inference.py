@@ -44,12 +44,12 @@ def get_inference(args):
     llm = HuggingFacePipeline(pipeline=pipeline, model_kwargs={'temperature': args.temperature})
 
     template = """ \
-<s>[INST] Your task is to generate a descriptive explanation from a question to an answer option. \
+Your task is to generate a descriptive explanation from a question to an answer option. \
 In the following, a question and an option as the answer to the question is provided. \
 The answer might be or not be a correct answer. \
 Write a descriptive explanation in at most one paragraph and 200 words to show that path from question to the answer.
 Question: "{question}"
-Answer Option: "{option}" [/INST]
+Answer Option: "{option}"
     """
     template = template.replace("\n", " \n ")
     template = template.strip()
