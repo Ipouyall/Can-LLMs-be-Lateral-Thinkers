@@ -10,7 +10,7 @@ import argparse
 
 
 def parse_arguments():
-    parser = argparse.ArgumentParser(description="Getting inference from Llama-2-7b on Brain Teaser Explain dataset")
+    parser = argparse.ArgumentParser(description="Getting inference from zephyr on Brain Teaser Explain dataset")
 
     parser.add_argument("--max_length", type=int, default=500, help="Maximum number of generated tokens")
     parser.add_argument("--temperature", type=float, default=0, help="Temperature for sampling")
@@ -51,7 +51,7 @@ def get_inference(args):
     llm = HuggingFacePipeline(pipeline=pipeline, model_kwargs={'temperature': args.temperature})
 
     template = """ \
-<s>[INST] You are given a riddle and four options to choose the answer amongst them. \
+You are given a riddle and four options to choose the answer amongst them. \
 The fourth option is "None of the above options". \
 Your final task is choosing the best option that is related to the riddle. \
 For the first three options, you are given a context that explains a path between the question and the answer. \
@@ -74,8 +74,8 @@ Context about option 1: "{context 1}"
 Context about option 2: "{context 2}"
 Context about option 3: "{context 3}"
 
-In your response mention the correct option's number ('option 1', 'option 2', 'option 3', 'option 4'). \
-There is no need for any long explanation. [/INST]
+To answer this riddle, you should exactly mention one option, \
+so announce the option you think is the best one in the format: 'Option 1' or 'Option 2' or 'Option 3' or 'Option 4':
 """
 
     template = template.replace("\n", " \n ")

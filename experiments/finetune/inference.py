@@ -10,7 +10,7 @@ import argparse
 
 
 def parse_arguments():
-    parser = argparse.ArgumentParser(description="Getting inference from Llama-2-7b on Brain Teaser Explain dataset")
+    parser = argparse.ArgumentParser(description="Getting inference from zephyr on Brain Teaser Explain dataset")
 
     parser.add_argument("--max_length", type=int, default=500, help="Maximum number of generated tokens")
     parser.add_argument("--temperature", type=float, default=0, help="Temperature for sampling")
