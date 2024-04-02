@@ -12,7 +12,7 @@
 </p>
 
 ## Intro
-This repo covers the implementation of the following paper:  **[BCAmirs at SemEval-2024 Task 4: Beyond Words: A Multimodal and Multilingual Exploration of Persuasion in Memes]()** by [Pouya Sadeghi](https://www.linkedin.com/in/ipouyall), [Amirhossein Abaskohi](https://amirabaskohi.github.io/), and [Yadollah Yaghoobzadeh](https://yyaghoobzadeh.github.io/), accepted to SemEval@NAACL 2024.
+This repo covers the implementation of the following paper:  **[uTeBC-NLP at SemEval-2024 Task 9: Can LLMs be Lateral Thinkers?]()** by [Pouya Sadeghi](https://www.linkedin.com/in/ipouyall), [Amirhossein Abaskohi](https://amirabaskohi.github.io/), and [Yadollah Yaghoobzadeh](https://yyaghoobzadeh.github.io/), accepted to SemEval@NAACL 2024.
 
 
 ## Abstract
