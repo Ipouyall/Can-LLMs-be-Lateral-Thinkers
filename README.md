@@ -92,3 +92,10 @@ To run other python files, all of them are parameterized and for some of them a 
 ```
 python3 FILE_NAME.py -h 
 ```
+
+## Citation
+
+```
+@inproceedings{
+}
+```
