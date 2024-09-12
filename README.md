@@ -96,12 +96,25 @@ python3 FILE_NAME.py -h
 ## Citation
 
 ```
-@misc{sadeghi2024utebcnlp,
-      title={uTeBC-NLP at SemEval-2024 Task 9: Can LLMs be Lateral Thinkers?}, 
-      author={Pouya Sadeghi and Amirhossein Abaskohi and Yadollah Yaghoobzadeh},
-      year={2024},
-      eprint={2404.02474},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+@inproceedings{sadeghi-etal-2024-utebc,
+    title = "u{T}e{BC}-{NLP} at {S}em{E}val-2024 Task 9: Can {LLM}s be Lateral Thinkers?",
+    author = "Sadeghi, Pouya  and
+      Abaskohi, Amirhossein  and
+      Yaghoobzadeh, Yadollah",
+    editor = {Ojha, Atul Kr.  and
+      Do{\u{g}}ru{\"o}z, A. Seza  and
+      Tayyar Madabushi, Harish  and
+      Da San Martino, Giovanni  and
+      Rosenthal, Sara  and
+      Ros{\'a}, Aiala},
+    booktitle = "Proceedings of the 18th International Workshop on Semantic Evaluation (SemEval-2024)",
+    month = jun,
+    year = "2024",
+    address = "Mexico City, Mexico",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.semeval-1.251",
+    doi = "10.18653/v1/2024.semeval-1.251",
+    pages = "1767--1778",
+    abstract = "Inspired by human cognition, Jiang et al. 2023 create a benchmark for assessing LLMs{'} lateral thinking{---}thinking outside the box. Building upon this benchmark, we investigate how different prompting methods enhance LLMs{'} performance on this task to reveal their inherent power for outside-the-box thinking ability. Through participating in SemEval-2024, task 9, Sentence Puzzle sub-task, we explore prompt engineering methods: chain of thoughts (CoT) and direct prompting, enhancing with informative descriptions, and employing contextualizing prompts using a retrieval augmented generation (RAG) pipeline. Our experiments involve three LLMs including GPT-3.5, GPT-4, and Zephyr-7B-beta. We generate a dataset of thinking paths between riddles and options using GPT-4, validated by humans for quality. Findings indicate that compressed informative prompts enhance performance. Dynamic in-context learning enhances model performance significantly. Furthermore, fine-tuning Zephyr on our dataset enhances performance across other commonsense datasets, underscoring the value of innovative thinking.",
 }
 ```
